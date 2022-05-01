@@ -1,0 +1,89 @@
+@startuml IRC
+
+interface Receiver {
+    + void send(Message message)
+}
+
+abstract class Client implements Receiver {
+    ~ String address
+    - String certificate
+    # boolean encrypted
+    # String encrypt(String message)
+}
+
+enum Mode {
+    + PRIVATE
+    + PUBLIC
+    + SECRET
+}
+
+class User extends Client {
+    - String nickname
+    - String username
+    - Chatroom[] chatrooms
+    - Mode mode
+    - Server preferredServer()
+    + String getNickname()
+    + Mode getMode()
+    + Server getPreferredServer()
+}
+
+class Server extends Client {
+    - Client clients
+    - java.net.Socket socket
+    + boolean verifyUser(String username, String hashedPassword)
+    + void sendMessage(Message message)
+}
+
+class ServerReceiver {
+    - IMessageHandler handler
+    - java.net.ServerSocket socket
+    + void setHandler(MessageHandler handler)
+    + void activate()
+    + void isActive()
+}
+interface IMessageHandler {
+    + void handleMessage()
+}
+
+
+abstract class Message {
+    # String[] parameters
+    # String command
+    + String toString()
+}
+note right of Message::stringify
+Has default implementation
+end note
+note right of Message
+This is just the base class
+more to follow.
+end note
+
+class ServerMessage extends Message {}
+
+class UserMessage extends Message {}
+
+class Chatroom implements Receiver {
+    - Mode mode
+    - User[] users
+    + User[] getUsers()
+    + Mode getMode()
+}
+
+note right of Chatroom::users
+This may be implemented in
+a database or distributed table.
+end note
+
+class Application {
+    - Application()
+    - Clients[] clients
+    - java.net.ServerSocket server
+    - Server mainServer
+    - ArrayList<Server> backupServers
+    - User operator
+    - JavaFX gui
+    + static void main()
+}
+@enduml
