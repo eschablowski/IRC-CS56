@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "redhat.vscode-xml",
+        "mike-lischke.vscode-antlr4"
+    ]
+}
