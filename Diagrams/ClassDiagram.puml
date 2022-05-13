@@ -1,14 +1,18 @@
-@startuml IRC
+@startuml ClassDiagram
 
 interface Receiver {
     + void send(Message message)
 }
 
 abstract class Client implements Receiver {
-    ~ String address
+    + Client(java.net.Socket socket)
+    - java.net.Socket socket
     - String certificate
+    # String address
     # boolean encrypted
     # String encrypt(String message)
+    # InputStream getInputStream()
+    # OutputStream getOutputStream()
 }
 
 enum Mode {
@@ -30,7 +34,6 @@ class User extends Client {
 
 class Server extends Client {
     - Client clients
-    - java.net.Socket socket
     + boolean verifyUser(String username, String hashedPassword)
     + void sendMessage(Message message)
 }
@@ -60,11 +63,16 @@ This is just the base class
 more to follow.
 end note
 
-class ServerMessage extends Message {}
+abstract class ServerMessage extends Message {
+    # ServerMessage(String command, String[] parameters)
+}
 
-class UserMessage extends Message {}
+abstract class UserMessage extends Message {
+    # UserMessage(String command, String[] parameters)
+}
 
 class Chatroom implements Receiver {
+    + Chatroom(Server server)
     - Mode mode
     - User[] users
     + User[] getUsers()

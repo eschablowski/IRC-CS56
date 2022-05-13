@@ -1,0 +1,25 @@
+@startuml Lifecycle
+
+User -> Application: Main Server
+
+User -> Application: Login
+Application -> Server: Login Info
+Server --> Application: Login Status
+
+Application -> Server: Chatroom and Visible Users List Requests
+Server --> Application: Chatroom and Visible Users List
+Application --> User: Chatroom and Visible Users List
+User -> Application: Choose Chatroom/User to chat with
+Application -> Application: Determine best endpoint server
+Application -> Server: Connect
+
+...
+User <-> Application: Messages
+Application <-> Server: Messages
+...
+
+User -> Application: Quit
+Application -> Server: Quit
+Application -> Clients: Quit
+
+@enduml
