@@ -1,0 +1,3 @@
+PASS secretpasswordhere
+NICK Wiz
+:WiZ NICK Kilroy
