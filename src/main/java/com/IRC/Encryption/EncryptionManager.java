@@ -3,6 +3,7 @@ package com.IRC.Encryption;
 import java.security.KeyPair;
 import java.security.KeyFactory;
 import java.security.PublicKey;
+import java.security.cert.Certificate;
 import java.security.spec.X509EncodedKeySpec;
 
 import java.util.Base64;
@@ -26,26 +27,20 @@ public class EncryptionManager {
     return decryptionCipher;
   }
 
-  EncryptionManager(KeyPair keyPair) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+  public EncryptionManager(PublicKey key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+    // Assign Key
+    this.publicKey = key;
+  }
+
+  public EncryptionManager(KeyPair keyPair) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     // Assign Key
     this.publicKey = keyPair.getPublic();
   }
 
-  public EncryptionManager(X509EncodedKeySpec certificate)
+  public EncryptionManager(Certificate certificate)
       throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException {
-    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
     // Assign Key
-    this.publicKey = keyFactory.generatePublic(certificate);
-  }
-
-  public EncryptionManager(byte[] certificate)
-      throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException {
-    this(new X509EncodedKeySpec(certificate));
-  }
-
-  public EncryptionManager(String certificate)
-      throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException {
-    this(new X509EncodedKeySpec(Base64.getDecoder().decode(certificate)));
+    this.publicKey = certificate.getPublicKey();
   }
 
   public byte[] encrypt(byte[] data)  throws IllegalBlockSizeException, UnsupportedOperationException {

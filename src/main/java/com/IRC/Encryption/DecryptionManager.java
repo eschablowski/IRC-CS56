@@ -1,3 +1,6 @@
+/**
+ * @author Elias Schablowski
+ */
 package com.IRC.Encryption;
 
 import java.security.KeyPair;
@@ -15,26 +18,37 @@ import java.lang.UnsupportedOperationException;
 
 import javax.crypto.Cipher;
 
+/**
+ * A utility class for encrypting strings and byte arrays with RSA
+ */
 public class DecryptionManager {
+  /**
+   * The private RSA key used for decryption
+   */
   private PrivateKey privateKey;
 
+  /**
+   * Get a Cipher object to encrypy
+   * @return A new Cipher object with the private key and config.
+   * @throws NoSuchAlgorithmException Basically if the computer cannot do RSA (impossible)
+   * @throws NoSuchPaddingException  Basically if the computer cannot do RSA (impossible)
+   * @throws InvalidKeyException If the key provided during setup is not decryption capable
+   */
   private Cipher getCipher() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     Cipher decryptionCipher = Cipher.getInstance("RSA");
     decryptionCipher.init(Cipher.DECRYPT_MODE, privateKey);
     return decryptionCipher;
   }
 
+  public DecryptionManager(PrivateKey key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+    // Assign Key
+    this.privateKey = key;
+  }
+
   public DecryptionManager(KeyPair keyPair)
       throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     // Assign Key
     this.privateKey = keyPair.getPrivate();
-  }
-
-  public DecryptionManager(X509EncodedKeySpec certificate)
-      throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException {
-    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-    // Assign Key
-    this.privateKey = keyFactory.generatePrivate(certificate);
   }
 
   public byte[] decrypt(byte[] data) throws IllegalBlockSizeException, UnsupportedOperationException {
