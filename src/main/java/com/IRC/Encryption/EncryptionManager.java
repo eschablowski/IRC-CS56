@@ -1,12 +1,8 @@
 package com.IRC.Encryption;
 
 import java.security.KeyPair;
-import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.cert.Certificate;
-import java.security.spec.X509EncodedKeySpec;
-
-import java.util.Base64;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.InvalidKeyException;

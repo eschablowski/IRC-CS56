@@ -4,13 +4,10 @@
 package com.IRC.Encryption;
 
 import java.security.KeyPair;
-import java.security.KeyFactory;
 import java.security.PrivateKey;
-import java.security.spec.X509EncodedKeySpec;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.InvalidKeyException;
-import java.security.spec.InvalidKeySpecException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.BadPaddingException;

@@ -6,10 +6,15 @@ import org.reflections.scanners.Scanners;
 import java.util.HashMap;
 import java.util.Set;
 
+import com.IRC.Communication.Message;
+import com.IRC.Communication.Prefix;
 import com.IRC.Communication.Reply.Exceptions.UnknownReplyException;
 import java.lang.reflect.InvocationTargetException;
 
-public abstract class Reply {
+public abstract class Reply extends Message {
+    protected Reply(Prefix prefix) {
+        super(prefix);
+    } 
     private static HashMap<Integer, Class<Reply>> orderedRepliesCache;
 
     protected static HashMap<Integer, Class<Reply>> orderedReplies() {
@@ -50,4 +55,10 @@ public abstract class Reply {
     }
 
     public abstract int replyNumber();
+    public String toString() {
+        return super.toString() + this.replyNumber();
+    }
+    public boolean lastReply() {
+        return true; // Assume this is the last as only list replies need this method
+    }
 }

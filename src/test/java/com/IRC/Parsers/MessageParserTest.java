@@ -2,7 +2,10 @@ import com.IRC.Parsers.MessageLexer;
 import com.IRC.Parsers.MessageParser;
 
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.junit.Test;
+
+import java.util.List;
 
 public class MessageParserTest {
     @Test
@@ -16,6 +19,8 @@ public class MessageParserTest {
                 throw new IllegalStateException("failed to parse at line " + line + " due to " + msg, e);
             }
         });
-        p.message();
+        ParseTree line = p.lines();
+        System.out.println(line.toStringTree());
+        System.out.println("Test");
     }
 }
