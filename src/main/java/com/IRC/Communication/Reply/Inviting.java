@@ -22,9 +22,9 @@ public class Inviting extends Reply {
         return 341;
     }
 
-    public static Version parse(String replyString) {
+    public static Inviting parse(String replyString) {
         String[] split = replyString.split(":", 2);
-        return new Version(split[0], split[1]);
+        return new Inviting(split[0], split[1]);
     }
 
     public String toString() {

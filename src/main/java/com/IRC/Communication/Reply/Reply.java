@@ -58,7 +58,7 @@ public abstract class Reply extends Message {
     public String toString() {
         return super.toString() + this.replyNumber();
     }
-    public boolean lastReply() {
+    public boolean isLastReply() {
         return true; // Assume this is the last as only list replies need this method
     }
 }

@@ -34,9 +34,9 @@ public class Away extends Reply {
         return 301;
     }
 
-    public static Version parse(String replyString) {
+    public static Away parse(String replyString) {
         String[] split = replyString.split(":", 2);
-        return new Version(split[0], split[1]);
+        return new Away(split[0], split[1]);
     }
 
     public String toString() {
