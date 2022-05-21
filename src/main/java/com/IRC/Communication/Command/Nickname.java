@@ -14,8 +14,8 @@ public class Nickname extends Command {
         return this.hopCount;
     }
 
-    public User getIncremented() {
-        return new User(this.nick, this.hopCount + 1);
+    public Nickname getIncremented() {
+        return new Nickname(this.nick, this.hopCount + 1);
     }
 
     Nickname(String nick) {
@@ -42,8 +42,8 @@ public class Nickname extends Command {
         this.hopCount = hopCount;
     }
 
-    public static User parse(String command) {
-        return new User(command);
+    public static Nickname parse(String command) {
+        return new Nickname(command);
     }
 
     public String toString() {
