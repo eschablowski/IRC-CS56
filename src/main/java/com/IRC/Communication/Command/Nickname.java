@@ -15,7 +15,7 @@ public class Nickname extends Command {
     }
 
     public Nickname getIncremented() {
-        return new Nickname(this.nick, this.hopCount + 1);
+        return new Nickname(this.nick, this.hopCount + 1, this.getPrefix());
     }
 
     Nickname(String nick) {
@@ -43,7 +43,9 @@ public class Nickname extends Command {
     }
 
     public static Nickname parse(String command) {
-        return new Nickname(command);
+        String[] params = command.split(" ");
+        if(params.length == 1) return new Nickname(params[0]);
+        return new Nickname(params[0], Integer.parseInt(params[1]));
     }
 
     public String toString() {
