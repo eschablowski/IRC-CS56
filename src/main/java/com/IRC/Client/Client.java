@@ -1,5 +1,7 @@
 package com.IRC.Client;
 
+import com.IRC.Encryption.EncryptionManager;
+
 import java.net.Socket;
 
 class Client {

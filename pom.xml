@@ -73,7 +73,7 @@
         <version>0.0.6</version>
         <configuration>
           <dynamicDependencies></dynamicDependencies>
-          <mainClass>replit.Main</mainClass>
+          <mainClass>com.IRC.Application</mainClass>
         </configuration>
       </plugin>
     </plugins>
