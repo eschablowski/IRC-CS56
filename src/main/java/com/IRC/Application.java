@@ -36,7 +36,7 @@ public class Application extends javafx.application.Application {
         Application.app = this;
         this.stage = stage;
         this.client = new Client(new java.net.Socket());
-        this.loadScene("login.fxml");
+        this.loadScene("/login.fxml");
         this.stage.show();
     }
 

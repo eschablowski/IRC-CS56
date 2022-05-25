@@ -20,6 +20,7 @@ public class Client {
   public Client(Socket socket) {
     this.receiveHandler = new ReceiveHandler(socket, (Command) -> {
     });
+    this.socket = socket;
   }
 
   private ReceiveHandler receiveHandler;
