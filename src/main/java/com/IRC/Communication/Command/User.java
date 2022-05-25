@@ -8,7 +8,7 @@ public class User extends Command {
     private String serverName;
     private String realName;
 
-    User(String username, String hostname, String serverName, String realName) {
+    public User(String username, String hostname, String serverName, String realName) {
         super(null);
         this.username = username;
         this.hostname = hostname;
@@ -16,7 +16,7 @@ public class User extends Command {
         this.realName = realName;
     }
 
-    User(String username, String hostname, String serverName, String realName, Prefix prefix) {
+    public User(String username, String hostname, String serverName, String realName, Prefix prefix) {
         super(prefix);
         this.username = username;
         this.hostname = hostname;

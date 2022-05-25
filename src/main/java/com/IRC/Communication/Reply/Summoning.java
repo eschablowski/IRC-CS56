@@ -19,9 +19,9 @@ public class Summoning extends Reply {
         return 341;
     }
 
-    public static Version parse(String replyString) {
+    public static Summoning parse(String replyString) {
         String[] split = replyString.split(" :", 2);
-        return new Version(split[0]);
+        return new Summoning(split[0]);
     }
 
     public String toString() {

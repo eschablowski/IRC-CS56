@@ -8,30 +8,28 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.geometry.Insets?>
 
-<VBox fx:controller="com.IRC.Controllers.Chat" alignment="LEFT" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:controller="com.IRC.Controllers.Chat" alignment="LEFT" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <HBox>
+        <TabPane fx:id="tabPane" fx:controller="controller.MainTestController" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://www.w3.org/2001/XInclude">
+            <tabs>
+                <Tab text="Chatrooms">
+                    <ListView fx:id="chatroomList"/>
+                </Tab>
+                <Tab text="Users">
+                    <ListView fx:id="userList"/>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <VBox>
             <children>
-                <Button text="Quit" onAction="#onQuit" />
-                <Button text="Preferences" onAction="#onPreferences" />
+                <ListView fx:id="messagesList" />
+                <HBox>
+                    <childen>
+                        <TextField fx:id="messageText" />
+                        <Button text="Send" onAction="#onSend" />
+                    </childen>
+                </HBox>
             </children>
-        </HBox>
-        <HBox>
-            <children>
-                <ListView fx:id="chatroomList" />
-                <VBox>
-                    <children>
-
-                        <ListView fx:id="messagesList" />
-                        <HBox>
-                            <childen>
-                                <TextField fx:id="messageText" />
-                                <Label text="Send" />
-                            </childen>
-                        </HBox>
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
+        </VBox>
     </children>
-</VBox>
+</HBox>

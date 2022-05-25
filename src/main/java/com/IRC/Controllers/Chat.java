@@ -1,34 +1,24 @@
 package com.IRC.Controllers;
 
-import java.io.IOException;
-
 import com.IRC.Application;
+import com.IRC.Client.Client;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class Chat {
+    @FXML
+    private ListView<Label> chatroomList;
+    @FXML
+    private ListView<Label> messagesList;
+    @FXML
+    private TextField messageText;
 
     @FXML
-    private TextField serverInput;
-    @FXML
-    private TextField usernameInput;
-    @FXML
-    private TextField passwordInput;
-    @FXML
-    private TextField nicknameInput;
-
-    @FXML
-    private Label errorMessage;
-
-    @FXML
-    private void onLogin() {
-        Application app = Application.getApplication();
-        try {
-            app.loadScene("chat.fxml");
-        } catch (IOException ioException) {
-            app.quit();
-        }
+    private void initialize() {
+        Client client = Application.getApplication().getClient();
+        //client.sendMessage().then((action, data))
     }
 }

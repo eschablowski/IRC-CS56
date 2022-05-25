@@ -18,25 +18,25 @@ public class Nickname extends Command {
         return new Nickname(this.nick, this.hopCount + 1, this.getPrefix());
     }
 
-    Nickname(String nick) {
+    public Nickname(String nick) {
         super(null);
         this.nick = nick;
         this.hopCount = 0;
     }
 
-    Nickname(String nick, int hopCount) {
+    public Nickname(String nick, int hopCount) {
         super(null);
         this.nick = nick;
         this.hopCount = hopCount;
     }
 
-    Nickname(String nick, Prefix prefix) {
+    public Nickname(String nick, Prefix prefix) {
         super(prefix);
         this.nick = nick;
         this.hopCount = 0;
     }
 
-    Nickname(String nick, int hopCount, Prefix prefix) {
+    public Nickname(String nick, int hopCount, Prefix prefix) {
         super(prefix);
         this.nick = nick;
         this.hopCount = hopCount;

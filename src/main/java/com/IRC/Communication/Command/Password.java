@@ -9,12 +9,12 @@ public class Password extends Command {
         return this.password;
     }
 
-    Password(String password) {
+    public Password(String password) {
         super(null);
         this.password = password;
     }
 
-    Password(String password, Prefix prefix) {
+    public Password(String password, Prefix prefix) {
         super(prefix);
         this.password = password;
     }
