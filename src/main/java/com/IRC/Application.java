@@ -27,9 +27,8 @@ public class Application extends javafx.application.Application {
 
     public void loadScene(String filename) throws IOException {
         FXMLLoader loader = new FXMLLoader(Application.class.getResource(filename));
-        Scene scene = new Scene(loader.load());
+        Scene scene = new Scene(loader.load(), 300, 200);
         this.stage.setScene(scene);
-        this.stage.show();
     }
 
     @Override
@@ -37,7 +36,8 @@ public class Application extends javafx.application.Application {
         Application.app = this;
         this.stage = stage;
         this.client = new Client(new java.net.Socket());
-        loadScene("login.fxml");
+        this.loadScene("login.fxml");
+        this.stage.show();
     }
 
     public static void main() {
