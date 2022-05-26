@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.IRC.Application;
 import com.IRC.Client.Client;
-import com.IRC.Communication.Command.Nickname;
+import com.IRC.Communication.Command.Quit;
 import com.IRC.Communication.Command.Password;
 import com.IRC.Communication.Command.User;
 
@@ -43,7 +43,7 @@ public class Login {
         }
 
         client.sendCommand(new Password(this.passwordInput.getText()))
-                .then(client.sendCommand(new Nickname(this.nicknameInput.getText())))
+                .then(client.sendCommand(new Quit(this.nicknameInput.getText())))
                 .then(client.sendCommand(
                         new User(this.usernameInput.getText(), this.serverInput.getText(), "", "realName")))
                 .then((action, replies) -> {

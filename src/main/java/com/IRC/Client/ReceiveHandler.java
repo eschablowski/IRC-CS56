@@ -38,6 +38,7 @@ public class ReceiveHandler implements Runnable {
                 if (bytes.length != 0) {
                     this.socket.getInputStream().read(bytes);
                     line += bytes;
+                    line.replaceAll("\r", "");
                     int newline = line.indexOf("\n");
                     if (newline != -1) {
                         try {
@@ -59,7 +60,7 @@ public class ReceiveHandler implements Runnable {
                     }
                 }
                 if (!this.active && !this.messages.isEmpty()) {
-                    this.socket.getOutputStream().write((this.messages.get(0).command.toString().getBytes()));
+                    this.socket.getOutputStream().write(((this.messages.get(0).command.toString() + "\n").getBytes()));
                     this.active = true;
                 }
                 try {

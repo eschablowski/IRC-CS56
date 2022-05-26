@@ -10,12 +10,35 @@
 
 <VBox fx:controller="com.IRC.Controllers.Main" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <HBox>
-            <children>
-                <Button text="Quit" onAction="#onQuit" />
-                <Button text="Preferences" onAction="#onPreferences" />
-            </children>
-        </HBox>
-        <HBox fx:id="mainContent"/>
+        <MenuBar layoutX="111.0" layoutY="87.0">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Log Out" onAction="#onLogout" />
+                        <MenuItem text="Quit" onAction="#onQuit" />
+                    </items>
+                </Menu>
+                <Menu text="Settings">
+                    <items>
+                        <MenuItem text="Connection Settings" />
+                        <MenuItem text="User Settings" />
+                        <MenuItem text="Encryption Settings" />
+                    </items>
+                </Menu>
+                <Menu text="Advanced">
+                    <items>
+                        <MenuItem text="Become Operator" onAction="#onOperator" />
+                        <MenuItem text="Leave" />
+                        <MenuItem text="Execute Direct Commands" />
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <HBox fx:id="mainContent" />
     </children>
 </VBox>
