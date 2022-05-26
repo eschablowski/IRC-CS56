@@ -14,8 +14,8 @@ public class Nickname extends Command {
         return this.hopCount;
     }
 
-    public Quit getIncremented() {
-        return new Quit(this.nick, this.hopCount + 1, this.getPrefix());
+    public Nickname getIncremented() {
+        return new Nickname(this.nick, this.hopCount + 1, this.getPrefix());
     }
 
     public Nickname(String nick) {
