@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class Reply extends Message {
     protected Reply(Prefix prefix) {
         super(prefix);
-    } 
+    }
     private static HashMap<Integer, Class<Reply>> orderedRepliesCache;
 
     protected static HashMap<Integer, Class<Reply>> orderedReplies() {
