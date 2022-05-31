@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Label?>
 
 <VBox fx:controller="com.IRC.Controllers.Main" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
@@ -37,6 +38,10 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <HBox fx:id="mainContent" />
+        <HBox fx:id="mainContent">
+            <children>
+                <Label text="Loading..." />
+            </children>
+        </HBox>
     </children>
 </VBox>

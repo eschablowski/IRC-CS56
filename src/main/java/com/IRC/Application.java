@@ -28,20 +28,19 @@ public class Application extends javafx.application.Application {
     }
 
     public void loadScene(String filename) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Application.class.getResource("main.fxml"));
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource(filename));
         this.mainController.setMainContent(loader.load());
     }
 
     @Override
     public void start(Stage stage) throws IOException {
         Application.app = this;
-        FXMLLoader loader = new FXMLLoader(Application.class.getResource("main.fxml"));
-        this.mainController = new Main();
-        loader.setController(this.mainController);
+        this.stage = stage;
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("/main.fxml"));
         Scene scene = new Scene(loader.load(), 300, 200);
         this.stage.setScene(scene);
-        this.stage = stage;
-  
+        this.mainController = loader.getController();
+
         this.client = new Client(new java.net.Socket());
         this.loadScene("/login.fxml");
         this.stage.show();
