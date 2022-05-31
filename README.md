@@ -1,3 +1,4 @@
+https://github.com/eschablowski/IRC-CS56
 # JavaIRC Fully integrated client
 
 JavaIRC Fully integrated client allows IRC compatible end to end encrypted P2P chat communication. Furthermore, it allows a decentralized mesh backup (although only for private chats).

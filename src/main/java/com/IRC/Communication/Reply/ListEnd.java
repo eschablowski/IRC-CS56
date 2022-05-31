@@ -25,6 +25,6 @@ public class ListEnd extends Reply {
 
     @Override
     public boolean isLastReply() {
-        return false;
+        return true;
     }
 }
