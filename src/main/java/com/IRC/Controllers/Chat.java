@@ -1,20 +1,17 @@
 package com.IRC.Controllers;
 
 import java.util.LinkedList;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 import com.IRC.Application;
 import com.IRC.Client.Client;
 import com.IRC.Client.MessageList;
 import com.IRC.Communication.Command.Names;
-import com.IRC.Communication.Command.User;
 import com.IRC.Communication.Reply.Reply;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 

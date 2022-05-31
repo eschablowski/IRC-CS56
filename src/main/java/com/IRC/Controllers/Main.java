@@ -46,4 +46,8 @@ public class Main {
         Application app = Application.getApplication();
         app.getClient().sendCommand(new Quit());
     }
+
+    public Node getCurrentScreen() {
+        return currentScreen;
+    }
 }
